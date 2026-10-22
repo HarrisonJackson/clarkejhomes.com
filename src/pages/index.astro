@@ -14,9 +14,21 @@ const linkLabels: Record<string, string> = {
   amazon: "Amazon",
 };
 const links = Object.entries(site.links).filter(([, url]) => url);
+
+const bookSchema = books.map((book) => ({
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: book.data.title,
+  author: { "@type": "Person", name: site.name },
+  genre: book.data.subtitle,
+  description: book.body?.split("\n\n")[0].replace(/\s+/g, " ").trim(),
+  ...(book.data.cover && { image: new URL(book.data.cover, Astro.site).href }),
+  ...(book.data.buyUrl && { url: book.data.buyUrl }),
+}));
 ---
 
 <Base>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
   <header class="hero">
     <p class="eyebrow">{site.tagline}</p>
     <h1>{site.name}</h1>
