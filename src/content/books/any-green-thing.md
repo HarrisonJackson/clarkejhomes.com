@@ -7,23 +7,23 @@ order: 1
 # buyUrl: "https://..."
 ---
 
-Eternal outsider Ayla returns to the faith community that raised her and finds that
-everything has changed, everyone's bags are designer, and sin doesn't even begin to
-cover it. The caravan of roving trailers she remembers has transformed into an
-international megachurch. Ayla, now married to the beloved leader's son, moves to the
-faith's exclusive island community with her husband and infant daughter.
+Eternal outsider Ayla left the faith community that raised her as a caravan of roving
+trailers. She returns as the wife of the leader's beloved son. She finds it's become an
+international megachurch where everyone's bags are designer and sin doesn't even begin
+to cover it.
 
-But just as Ayla settles into the happily ever after part of her Cinderella story, two
-wasted corpses crash their lavish homecoming party. Directed to never question God's
-plan, the community moves on easily from the horrific discovery, but Ayla's anxiety
-spirals. To help her return to the faith's central tenet of acceptance, Ayla agrees to
-undergo therapeutic and drug treatments managed by the church.
+On the church's exclusive island, Ayla, her husband, and their infant daughter are
+welcomed home with a lavish party. Then two corpses crash it. The faithful, taught never
+to question God's plan, move on by morning. Ayla can't.
 
-But as these blur the lines of her reality, a face she cannot place, a husband she no
-longer recognizes, and cryptic notes from her late mother push her towards a dangerous
-suspicion. Her church has a secret, and it's been killing its own followers to keep it.
-Will Ayla trust her instincts, risking her family, security, and faith, or will she shut
-her eyes, keep silent, and enjoy her life of privilege?
+When her anxiety won't quiet, the church offers a cure: therapy and medication, managed
+by the church. But the treatments blur the edges of her reality — a face she can't
+place, a husband she no longer recognizes, cryptic notes from her late mother — and Ayla
+begins to suspect the truth. Her church has a secret, and it's been killing its own
+followers to keep it.
+
+To expose it, she'll have to risk everything she married into: her family, her
+security, and her faith.
 
 *If the only thing that will satisfy your appetite is to eat the rich, add this to your
 reading menu.*
