@@ -78,6 +78,23 @@ const bookSchema = books.map((book) => ({
     }
 
     {
+      site.newsletter.webhook && (
+        <section id="newsletter" class="newsletter">
+          <h2>{site.newsletter.heading}</h2>
+          <p>{site.newsletter.blurb}</p>
+          <form data-webhook={site.newsletter.webhook}>
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            {/* Honeypot: hidden from people, filled in by bots. */}
+            <input class="visually-hidden" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit">Sign up</button>
+          </form>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </section>
+      )
+    }
+
+    {
       site.email && (
         <section id="contact">
           <h2>Contact</h2>
@@ -102,6 +119,39 @@ const bookSchema = books.map((book) => ({
     <p>© {new Date().getFullYear()} {site.name}</p>
   </footer>
 </Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#newsletter form");
+  const status = document.querySelector<HTMLElement>("#newsletter .form-status");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const button = form.querySelector("button")!;
+    button.disabled = true;
+
+    // Bots fill the hidden field; pretend it worked and drop it.
+    if (!data.get("website")) {
+      try {
+        // no-cors: Zapier still receives the POST, we just can't read the response.
+        await fetch(form.dataset.webhook!, {
+          method: "POST",
+          mode: "no-cors",
+          body: new URLSearchParams({
+            email: String(data.get("email")).trim(),
+            page: location.href,
+          }),
+        });
+      } catch {
+        status!.textContent = "Something went wrong. Please try again.";
+        button.disabled = false;
+        return;
+      }
+    }
+    form.hidden = true;
+    status!.textContent = "Thanks, you're on the list.";
+  });
+</script>
 
 <style>
   .hero, main, footer {
@@ -203,6 +253,40 @@ const bookSchema = books.map((book) => ({
   .buy {
     font-weight: 600;
     text-decoration: none;
+  }
+  .newsletter form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .newsletter input[type="email"] {
+    flex: 1 1 16rem;
+    font: inherit;
+    padding: 0.65rem 0.85rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .newsletter button {
+    font: inherit;
+    font-weight: 600;
+    padding: 0.65rem 1.4rem;
+    color: var(--paper);
+    background: var(--accent);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .newsletter button:disabled { opacity: 0.6; }
+  .form-status:empty { display: none; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   footer {
     padding-top: 2.5rem;

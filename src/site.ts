@@ -16,6 +16,13 @@ export const site = {
 
   // Contact address shown in the footer; leave empty to hide the contact section.
   email: "",
+  // Email list signup. Submissions go to a Zapier webhook that adds a row to the
+  // "Clarke J Home Email List" Google Sheet. Leave webhook empty to hide the form.
+  newsletter: {
+    webhook: "https://hooks.zapier.com/hooks/catch/21402526/417g1ov/",
+    heading: "Join the email list",
+    blurb: "News about upcoming books and events. No spam, just the occasional update.",
+  },
   // Leave a link empty ("") to hide it.
   links: {
     instagram: "",

@@ -22,3 +22,10 @@ npm run dev
 - GitHub Pages, custom domain `clarkejhomes.com` (set by `public/CNAME`).
 - DNS is in Route 53 in AWS account `841668550433`. Apex A/AAAA records point at GitHub Pages; `www` is a CNAME to `harrisonjackson.github.io`. The MX/TXT records are Google Workspace email — leave them alone.
 - `clarkej.com` redirects here via the `HarrisonJackson/clarkej.com` repo.
+
+## Email list
+
+The signup form posts to a Zapier webhook (`newsletter.webhook` in `src/site.ts`).
+The Zap "clarkejhomes.com email signups → Google Sheet" adds each signup as a row
+(Email, Signed up, Page) to the "Clarke J Home Email List" sheet owned by harrison@untapp.com.
+Clear `webhook` to hide the form.
