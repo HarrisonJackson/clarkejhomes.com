@@ -7,6 +7,7 @@ const books = defineCollection({
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
+    tagline: z.string().optional(), // one-line hook shown above the description
     // Higher numbers show first.
     order: z.number().default(0),
     status: z.string().optional(), // e.g. "Coming 2027", "Out now"

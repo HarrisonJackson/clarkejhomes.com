@@ -1,10 +1,10 @@
 # clarkejhomes.com
 
-Author site for Clarke Jackson. Astro static site, deployed to GitHub Pages on every push to `main`.
+Author site for C.J. Homes. Astro static site, deployed to GitHub Pages on every push to `main`.
 
 ## Editing
 
-- **Name, intro, bio, photo, email, social links:** `src/site.ts`
+- **Name, description, bio, photo, email, social links:** `src/site.ts`
 - **Books:** one markdown file per book in `src/content/books/` (copy `first-book.md`). Covers go in `public/covers/`.
 - **Images:** anything in `public/` is served from the site root (`public/clarke.jpg` → `/clarke.jpg`).
 
